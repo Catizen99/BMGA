@@ -1,10 +1,10 @@
 const ThemeStyles = {
   fonts: {
-    body: "'Barlow', sans-serif",
-    primary: "'Barlow', sans-serif",
-    secondary: "'Barlow', sans-serif",
-    title: "'Barlow', sans-serif",
-    title2: "'Barlow', sans-serif",
+    body: "'Blinker', sans-serif",
+    primary: "'Blinker', sans-serif",
+    secondary: "'Blinker', sans-serif",
+    title: "'Blinker', sans-serif",
+    title2: "'Blinker', sans-serif",
   },
 
   colors: {
