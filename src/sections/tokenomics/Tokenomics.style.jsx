@@ -28,11 +28,14 @@ const popOut = keyframes`
   0% {
     transform: scale(1);
   }
-  40% {
+  30% {
+    transform: scale(1.06);
+  }
+  60% {
     transform: scale(1.08);
   }
-  70% {
-    transform: scale(1.05);
+  80% {
+    transform: scale(1.04);
   }
   100% {
     transform: scale(1);
@@ -44,7 +47,11 @@ const detachSegment = keyframes`
     transform: translateX(0) translateY(0);
     filter: brightness(1);
   }
-  40% {
+  30% {
+    transform: translateX(calc(var(--detach-x, 8px) * 0.6)) translateY(calc(var(--detach-y, -8px) * 0.6));
+    filter: brightness(1.1);
+  }
+  50% {
     transform: translateX(var(--detach-x, 8px)) translateY(var(--detach-y, -8px));
     filter: brightness(1.2);
   }
@@ -146,16 +153,16 @@ const TokenomicsWrapper = styled.section`
         max-height: 100%;
         position: relative;
         z-index: 1;
-        transition: transform 0.3s ease;
+        transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
         
         &:hover {
           transform: scale(1.02) translateY(-3px);
           box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-          transition: all 0.3s ease;
+          transition: all 0.4s ease-in-out;
         }
         
         &.animating {
-          animation: ${popOut} 0.7s ease-out;
+          animation: ${popOut} 0.8s ease-in-out;
           box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
         }
       }

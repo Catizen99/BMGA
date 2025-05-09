@@ -111,6 +111,14 @@ const PayWithStyleWrapper = styled.div`
     box-sizing: border-box;
     width: auto;
     text-transform: capitalize;
+    
+    .usdt-icon {
+      width: 18px;
+      height: 18px;
+      margin-left: 5px;
+      margin-bottom: 3px;
+      vertical-align: middle;
+    }
   }
   
   .pay-with-list {

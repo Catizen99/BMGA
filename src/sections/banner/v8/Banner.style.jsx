@@ -143,10 +143,12 @@ const BannerWrapper = styled.section`
     border-radius: 40px 40px 0px 0px;
     border: 2px solid ${({ theme }) => theme.colors.white}26;
     background: rgba(43, 46, 82, 0.95);
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(9px);
     display: flex;
     gap: 82px;
     position: relative;
+    width: 650px;
+    margin: 0 auto;
 
     &::before {
       position: absolute;

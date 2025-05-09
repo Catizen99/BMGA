@@ -1,5 +1,6 @@
 import PayWithStyleWrapper from "./PayWith.style";
 import StatusIcon from "../../assets/images/icons/status.png";
+import UsdtIcon from "../../assets/images/token/usdt.png";
 import Dropdown from "./Dropdown/Dropdown";
 import { usePresaleData } from "../../utils/PresaleContext";
 import { useEffect } from "react";
@@ -58,7 +59,7 @@ const PayWith = ({ variant }) => {
           {(variant === "v1" || variant === "v2" || variant === "v3") && (
             <>
               <div className="price-display-box">
-                <span><span style={{color: 'white'}}>1</span> ${tokenSymbol.toUpperCase()} = {currentPrice}</span>
+                <span><span style={{color: 'white'}}>1</span> ${tokenSymbol.toUpperCase()} = {currentPrice} <img src={UsdtIcon} alt="USDT" className="usdt-icon" /></span>
               </div>
               <ul className="pay-with-list">
                 <li>
@@ -141,7 +142,7 @@ const PayWith = ({ variant }) => {
           {(variant === "v4" || variant === "v5" || variant === "v6") && (
             <div className="pay-with-content-left">
               <div className="price-display-box">
-                <span><span style={{color: 'white'}}>1</span> ${tokenSymbol.toUpperCase()} = {currentPrice}</span>
+                <span><span style={{color: 'white'}}>1</span> ${tokenSymbol.toUpperCase()} = {currentPrice} <img src={UsdtIcon} alt="USDT" className="usdt-icon" /></span>
               </div>
               <ul className="pay-with-list">
                 <li>

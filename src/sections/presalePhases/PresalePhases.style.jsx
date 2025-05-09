@@ -51,12 +51,17 @@ const PresalePhasesWrapper = styled.section`
     margin: 0 auto;
   }
 
+  .progress-container {
+    position: relative;
+    width: 100%;
+    margin: 0 0 40px 0;
+  }
+
   .progress-bar-container {
     position: relative;
     height: 16px;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 8px;
-    margin: 0 0 40px 0;
     z-index: 1;
     width: 100%;
     overflow: hidden;
@@ -73,6 +78,60 @@ const PresalePhasesWrapper = styled.section`
     transition: width 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     box-shadow: 0 0 20px rgba(243, 186, 47, 0.8), 0 0 5px rgba(243, 186, 47, 1);
     animation: pulse 2s infinite;
+  }
+  
+  .hat-image {
+    position: absolute;
+    bottom: 20px; /* Position above the progress bar */
+    left: 0;
+    z-index: 1000;
+    transition: left 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.5s ease;
+    animation: float 3s ease-in-out infinite;
+    pointer-events: none;
+    
+    img {
+      width: 80px;
+      height: auto;
+      filter: drop-shadow(0 0 15px rgba(243, 186, 47, 1)) drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));
+    }
+    
+    &.stage-nine {
+      animation: celebrate 1.5s ease-in-out infinite;
+      
+      img {
+        filter: drop-shadow(0 0 20px rgba(243, 186, 47, 1)) drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+      }
+    }
+  }
+  
+  @keyframes celebrate {
+    0% {
+      transform: translateX(-50%) rotate(15deg) translateY(0px);
+    }
+    25% {
+      transform: translateX(-50%) rotate(25deg) translateY(-8px);
+    }
+    50% {
+      transform: translateX(-50%) rotate(15deg) translateY(-4px);
+    }
+    75% {
+      transform: translateX(-50%) rotate(5deg) translateY(-8px);
+    }
+    100% {
+      transform: translateX(-50%) rotate(15deg) translateY(0px);
+    }
+  }
+  
+  @keyframes float {
+    0% {
+      transform: translateX(-50%) translateY(0px);
+    }
+    50% {
+      transform: translateX(-50%) translateY(-5px);
+    }
+    100% {
+      transform: translateX(-50%) translateY(0px);
+    }
   }
   
   @keyframes pulse {
@@ -428,6 +487,14 @@ const PresalePhasesWrapper = styled.section`
       border-radius: 7px;
     }
     
+    .hat-image {
+      bottom: 18px;
+      
+      img {
+        width: 70px;
+      }
+    }
+    
     .phase-item .phase-box::after {
       width: 10px;
       height: 10px;
@@ -504,6 +571,14 @@ const PresalePhasesWrapper = styled.section`
     
     .progress-bar {
       border-radius: 6px;
+    }
+    
+    .hat-image {
+      bottom: 16px;
+      
+      img {
+        width: 65px;
+      }
     }
     
     .phase-box {

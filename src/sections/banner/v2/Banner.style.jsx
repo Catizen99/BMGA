@@ -148,10 +148,13 @@ const BannerWrapper = styled.div`
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 100%;
+    width: 650px;
+    margin: 0 auto;
+    left: 50%;
+    transform: translateX(-50%);
     padding: 40px 120px;
     background: ${({ theme }) => theme.colors.white}1a;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(9px);
 
     &-header {
       display: flex;

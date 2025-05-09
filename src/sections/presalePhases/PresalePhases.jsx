@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import PresalePhasesWrapper from "./PresalePhases.style";
+import hatImage from "../../assets/images/maga_cap.png";
 
 const PresalePhases = () => {
   const CURRENT_PRESALE_STAGE = 4; // Define the current presale stage (can be fetched from API in real app)
@@ -201,12 +202,25 @@ const PresalePhases = () => {
         <Row>
           <Col>
             <div className="presale-phases-container">
-              {/* Progress bar first for better mobile display */}
-              <div className="progress-bar-container">
+              {/* Hat image positioned above the progress bar */}
+              <div className="progress-container">
                 <div 
-                  className="progress-bar" 
-                  style={{ width: `${progressPercent}%` }}
-                ></div>
+                  className={`hat-image ${activePhase === 9 ? 'stage-nine' : ''}`}
+                  style={{ 
+                    left: `${activePhase === 9 ? 100 : progressPercent}%`,
+                    transform: `translateX(-50%) ${activePhase === 9 ? 'rotate(15deg)' : ''}` 
+                  }}
+                >
+                  <img src={hatImage} alt="MAGA Cap" />
+                </div>
+                
+                {/* Progress bar */}
+                <div className="progress-bar-container">
+                  <div 
+                    className="progress-bar" 
+                    style={{ width: `${progressPercent}%` }}
+                  ></div>
+                </div>
               </div>
               
               <div className="phases-wrapper">

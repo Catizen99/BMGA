@@ -68,7 +68,7 @@ const ProgressWrapper = styled.div`
       backdrop-filter: blur(10px);
 
       .progress-done {
-        background: #1dffe0; /* Updated to teal */
+        background: #F3BA2F; /* Updated to USDT gold color */
         border-radius: 12px;
 
         p {
