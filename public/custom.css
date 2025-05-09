@@ -1,3 +1,8 @@
+/* Apply Barlow font to all elements */
+* {
+  font-family: 'Barlow', sans-serif !important;
+}
+
 /* Override all ::before pseudo-elements to have 35% opacity */
 *::before {
   opacity: 0.35 !important;
@@ -325,10 +330,14 @@ div[class*="banner"]::before {
   line-height: 110px !important;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5) !important;
   color: white !important;
+  font-family: 'Barlow', sans-serif !important;
+  font-weight: 700 !important;
 }
 
 /* Change the banner subtitle font size to 25px */
 .banner-subtitle {
   font-size: 25px !important;
   line-height: 35px !important;
+  font-family: 'Barlow', sans-serif !important;
+  font-weight: 500 !important;
 }

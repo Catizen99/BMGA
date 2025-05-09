@@ -1,10 +1,10 @@
 const ThemeStyles = {
   fonts: {
-    body: "'Inter', sans-serif",
-    primary: "'Outfit', sans-serif",
-    secondary: "'Orbitron', sans-serif",
-    title: "'Kufam', sans-serif",
-    title2: "'Bebas Neue', sans-serif",
+    body: "'Barlow', sans-serif",
+    primary: "'Barlow', sans-serif",
+    secondary: "'Barlow', sans-serif",
+    title: "'Barlow', sans-serif",
+    title2: "'Barlow', sans-serif",
   },
 
   colors: {
