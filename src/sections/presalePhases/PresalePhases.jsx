@@ -223,6 +223,82 @@ const PresalePhases = () => {
                 </div>
               </div>
               
+              {/* Interactive Graph for Bonus and Price */}
+              <div className="presale-graph-container">
+                <div className="graph-title">
+                  <span>Bonus & Price Trends</span>
+                </div>
+                <div className="graph-content">
+                  <div className="graph-y-axis">
+                    <div className="y-axis-label">Bonus %</div>
+                    <div className="y-axis-values">
+                      <span>10%</span>
+                      <span>5%</span>
+                      <span>0%</span>
+                    </div>
+                  </div>
+                  <div className="graph-chart">
+                    <div className="graph-bars">
+                      {phases.map((phase) => (
+                        <div 
+                          key={`bonus-bar-${phase.id}`} 
+                          className="graph-bar bonus-bar"
+                          style={{ 
+                            height: `${parseInt(phase.bonus) * 10}%`,
+                            backgroundColor: phase.id <= activePhase ? '#F3BA2F' : 'rgba(243, 186, 47, 0.3)'
+                          }}
+                          data-phase={phase.id}
+                          data-bonus={phase.bonus}
+                          data-price={phase.price}
+                        >
+                          <div className="graph-tooltip">
+                            <div>Stage {phase.id}</div>
+                            <div>Bonus: {phase.bonus}</div>
+                            <div>Price: {phase.price}</div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="graph-line">
+                      {phases.map((phase, index) => {
+                        // Convert price string to number (remove $ and convert to float)
+                        const priceValue = parseFloat(phase.price.replace('$', ''));
+                        // Calculate height percentage (normalize to the highest price which is $0.005)
+                        const heightPercentage = (priceValue / 0.005) * 100;
+                        
+                        // Only draw line segment if not the first point
+                        return index > 0 ? (
+                          <div 
+                            key={`price-line-${phase.id}`}
+                            className="price-line-segment"
+                            style={{
+                              left: `${((index - 0.5) / (phases.length - 1)) * 100}%`,
+                              height: `${heightPercentage}%`,
+                              backgroundColor: phase.id <= activePhase ? '#d22626' : 'rgba(210, 38, 38, 0.3)'
+                            }}
+                          ></div>
+                        ) : null;
+                      })}
+                    </div>
+                  </div>
+                  <div className="graph-y-axis price-axis">
+                    <div className="y-axis-label">Price $</div>
+                    <div className="y-axis-values">
+                      <span>$0.005</span>
+                      <span>$0.003</span>
+                      <span>$0.0004</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="graph-x-axis">
+                  {phases.map((phase) => (
+                    <div key={`x-label-${phase.id}`} className="x-axis-label">
+                      {phase.id}
+                    </div>
+                  ))}
+                </div>
+              </div>
+              
               <div className="phases-wrapper">
                 {phases.map((phase) => (
                   <div 

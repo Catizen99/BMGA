@@ -35,7 +35,7 @@ const PresalePhasesWrapper = styled.section`
   }
 
   .presale-subtitle {
-    margin-bottom: 50px;
+    margin-bottom: 80px; /* Increased from 50px to 80px (+30px) */
     font-family: ${({ theme }) => theme.fonts.primary};
     font-size: 18px;
     font-weight: 500;
@@ -143,6 +143,254 @@ const PresalePhasesWrapper = styled.section`
     }
     100% {
       box-shadow: 0 0 15px rgba(243, 186, 47, 0.7);
+    }
+  }
+
+  /* Interactive Graph Styles */
+  .presale-graph-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 60px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .graph-title {
+    text-align: center;
+    margin-bottom: 15px;
+    
+    span {
+      font-family: ${({ theme }) => theme.fonts.title2};
+      font-size: 20px;
+      font-weight: 600;
+      color: #FFFFFF;
+    }
+  }
+
+  .graph-content {
+    display: flex;
+    height: 200px;
+    position: relative;
+    margin-bottom: 30px;
+  }
+
+  .graph-y-axis {
+    width: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-right: 10px;
+    
+    .y-axis-label {
+      font-size: 14px;
+      color: #F3BA2F;
+      font-weight: 500;
+      margin-bottom: 10px;
+      text-align: center;
+      width: 100%;
+    }
+    
+    .y-axis-values {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      
+      span {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.7);
+      }
+    }
+    
+    &.price-axis {
+      align-items: flex-start;
+      padding-right: 0;
+      padding-left: 10px;
+      
+      .y-axis-label {
+        color: #d22626;
+      }
+    }
+  }
+
+  .graph-chart {
+    flex: 1;
+    position: relative;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    height: 100%;
+  }
+
+  .graph-bars {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    padding: 0 5%;
+  }
+
+  .graph-bar {
+    width: 8%;
+    background-color: rgba(243, 186, 47, 0.3);
+    border-radius: 4px 4px 0 0;
+    position: relative;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    
+    &:hover {
+      filter: brightness(1.2);
+      
+      .graph-tooltip {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(-5px);
+      }
+    }
+  }
+
+  .graph-tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.9);
+    border: 1px solid #F3BA2F;
+    border-radius: 6px;
+    padding: 8px 12px;
+    min-width: 120px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 10;
+    pointer-events: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border-width: 6px;
+      border-style: solid;
+      border-color: #F3BA2F transparent transparent transparent;
+    }
+    
+    div {
+      font-size: 12px;
+      color: #FFFFFF;
+      margin-bottom: 4px;
+      text-align: center;
+      
+      &:first-child {
+        font-weight: 600;
+        color: #F3BA2F;
+      }
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .graph-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .price-line-segment {
+    position: absolute;
+    bottom: 0;
+    width: 3px;
+    background-color: rgba(210, 38, 38, 0.3);
+    border-radius: 3px;
+  }
+
+  .graph-x-axis {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5%;
+    margin-top: 10px;
+  }
+
+  .x-axis-label {
+    width: 8%;
+    text-align: center;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 500;
+  }
+
+  /* Responsive styles for the graph */
+  @media screen and (max-width: 767px) {
+    .presale-graph-container {
+      padding: 15px;
+      margin-bottom: 40px;
+    }
+    
+    .graph-content {
+      height: 180px;
+    }
+    
+    .graph-y-axis {
+      width: 50px;
+      
+      .y-axis-label {
+        font-size: 12px;
+      }
+      
+      .y-axis-values span {
+        font-size: 10px;
+      }
+    }
+    
+    .graph-title span {
+      font-size: 18px;
+    }
+    
+    .x-axis-label {
+      font-size: 12px;
+    }
+  }
+
+  @media screen and (max-width: 575px) {
+    .presale-graph-container {
+      padding: 10px;
+    }
+    
+    .graph-content {
+      height: 150px;
+    }
+    
+    .graph-y-axis {
+      width: 40px;
+    }
+    
+    .graph-bar {
+      width: 10%;
+    }
+    
+    .graph-tooltip {
+      min-width: 100px;
+      padding: 6px 8px;
+      
+      div {
+        font-size: 10px;
+      }
+    }
+    
+    .x-axis-label {
+      width: 10%;
+      font-size: 10px;
     }
   }
 
@@ -560,7 +808,7 @@ const PresalePhasesWrapper = styled.section`
     .presale-subtitle {
       font-size: 16px;
       line-height: 26px;
-      margin-bottom: 30px;
+      margin-bottom: 60px; /* Increased from 30px to 60px (+30px) */
     }
     
     .progress-bar-container {
